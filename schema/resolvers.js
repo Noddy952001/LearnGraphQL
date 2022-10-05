@@ -10,6 +10,7 @@ const resolvers = {
       return await User.find();
     },
 
+    //get all students
     getAllStudents: async () => {
       return await Student.find();
     },
@@ -36,9 +37,6 @@ const resolvers = {
         lName: args.UserInput.lName,
 
       });
-
-     
-
       return newUser.save()
     },
 
@@ -49,9 +47,6 @@ const resolvers = {
         school: args.StudentInput.school,
         class: args.StudentInput.class,
       });
-
-     
-
       return  studerUser.save()
     },
 
