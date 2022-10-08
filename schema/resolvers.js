@@ -21,17 +21,7 @@ const resolvers = {
   Mutation: {
     //create User
     createUser: async (parent, args) => {
-      // const userr = await User.findOne({
-      //   email: args.UserInput.email,
-      // });
-
-      // if (userr) {
-      //   throw new Error("This Email already Exits");
-      // }
-      // const hashpasswod = await bcrypt.hash(args.UserInput.password, 12);
-
-      // let date = new Date();
-
+      
       const newUser = new User({
         fName: args.UserInput.fName,
         lName: args.UserInput.lName,
@@ -42,13 +32,23 @@ const resolvers = {
 
     //create StudentUser
     createStudent: async (parent, args) => {
-     
+
       const studerUser = new Student({
         school: args.StudentInput.school,
         class: args.StudentInput.class,
       });
       return  studerUser.save()
     },
+
+    updateUser: async (_, args) => {
+
+      const filter = { _id: args.UserUpdateInput.id }
+      const update = {
+        fName: args.UserUpdateInput.fName,
+        lName: args.UserUpdateInput.lName,
+      }
+      return await User.findOneAndUpdate(filter, update, { new: true })
+  },
 
 
   }

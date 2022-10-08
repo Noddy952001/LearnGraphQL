@@ -20,9 +20,3 @@ mongoose.connect(`
     console.log(err);
 });
 
-
-
-// cron.schedule('* * * * *', () => {
-//   console.log('running a task every minute');
-// });
-

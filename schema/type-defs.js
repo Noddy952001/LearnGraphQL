@@ -13,6 +13,12 @@ const typeDefs = gql`
             lName: String      
         }
 
+        input userUpdateInput {
+            id:ID
+            fName: String
+            lName: String
+        }
+
 
         type student {
             id:ID!
@@ -34,6 +40,8 @@ const typeDefs = gql`
 
         type Mutation {
             createUser(UserInput:userInput):user
+            updateUser(UserUpdateInput:userUpdateInput):user
+
             createStudent(StudentInput:studentInput):student
         }
 
